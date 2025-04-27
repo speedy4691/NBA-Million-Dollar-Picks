@@ -72,7 +72,7 @@ def get_driver():
 
     data={'Teams': teams, 'Date': game_date, 'Money Line': Money_Line, 'Line': Line, 'Over/Under': Over_Under, "Chase": Bets, "Cole": Bets, "Fletch": Bets}
     return pd.DataFrame(data)
-df=load_data()
+df=get_driver()
 #df = pd.DataFrame(data)
 
 st.title('NBA Million Dollar Picks')
