@@ -26,8 +26,6 @@ with st.echo():
     options.add_argument("--headless")
 
     driver = get_driver()
-    driver.get("http://example.com")
-
     driver.get('https://www.sportsline.com/nba/odds/')
     teams = driver.find_elements(By.XPATH, '//div[@data-testid="Team-name"]')
     odds = driver.find_elements(By.XPATH, '//span[@class="primary"]')
@@ -92,4 +90,4 @@ with st.echo():
     st.write("### Daily Bets")
     st.dataframe(updated_df)
     
-    #st.code(driver.page_source)
+    st.code(driver.page_source)
