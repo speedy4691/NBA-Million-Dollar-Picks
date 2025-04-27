@@ -8,6 +8,9 @@ with st.echo():
     from selenium.webdriver.common.by import By
     import pandas as pd
 
+    j=0
+    i=0
+
     @st.cache_resource
     def get_driver():
         return webdriver.Chrome(
