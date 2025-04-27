@@ -2,4 +2,3 @@ streamlit==1.18.1
 selenium==4.9.1
 pandas==1.4.2
 webdriver-manager==4.8.0
-pip = 25.1
