@@ -9,8 +9,6 @@ from selenium.webdriver.common.by import By
 import pandas as pd
 from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode
 
-j=0
-i=0
 
 #@st.cache_resource
 def get_driver():
@@ -44,6 +42,8 @@ def get_data():
     Money_Line=[]
     Line=[]
     Over_Under=[]
+    j=0
+    i=0
     for i in range(0,len(odds),3):
         a=odds[i]
         b=odds[i+1]
