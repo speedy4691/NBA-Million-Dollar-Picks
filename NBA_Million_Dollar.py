@@ -36,41 +36,41 @@ def get_driver():
     payout = [element.text for element in payout]
     date = [element.text for element in date]
     driver.quit()
-# print(teams)
-# print(odds)
-# print(payout)
-Money_Line=[]
-Line=[]
-Over_Under=[]
-for i in range(0,len(odds),3):
-    a=odds[i]
-    b=odds[i+1]
-    c=odds[i+2]
-    Money_Line.append(a)
-    Line.append(b)
-    Over_Under.append(c)
-game_date=[]
-for i in range(0,2*len(date),1):
-    remainder=i%2
-    if remainder==0:
-        date[j]=date[j][0:5]
-        game_date.append(date[j])
-    else:
-        game_date.append(date[j])
-        j=j+1    
-for i in range(len(Over_Under)):
-    Over_Under[i]=Over_Under[i][1:]
-# print(teams)
-# print((game_date))
-# print(Money_Line)
-# print(Line)
-# print(Over_Under)
-Bets=[]
-for i in range(len(Over_Under)):
-    Bets.append("$0")
+    # print(teams)
+    # print(odds)
+    # print(payout)
+    Money_Line=[]
+    Line=[]
+    Over_Under=[]
+    for i in range(0,len(odds),3):
+        a=odds[i]
+        b=odds[i+1]
+        c=odds[i+2]
+        Money_Line.append(a)
+        Line.append(b)
+        Over_Under.append(c)
+    game_date=[]
+    for i in range(0,2*len(date),1):
+        remainder=i%2
+        if remainder==0:
+            date[j]=date[j][0:5]
+            game_date.append(date[j])
+        else:
+            game_date.append(date[j])
+            j=j+1    
+    for i in range(len(Over_Under)):
+        Over_Under[i]=Over_Under[i][1:]
+    # print(teams)
+    # print((game_date))
+    # print(Money_Line)
+    # print(Line)
+    # print(Over_Under)
+    Bets=[]
+    for i in range(len(Over_Under)):
+        Bets.append("$0")
 
 
-data={'Teams': teams, 'Date': game_date, 'Money Line': Money_Line, 'Line': Line, 'Over/Under': Over_Under, "Chase": Bets, "Cole": Bets, "Fletch": Bets}
+    data={'Teams': teams, 'Date': game_date, 'Money Line': Money_Line, 'Line': Line, 'Over/Under': Over_Under, "Chase": Bets, "Cole": Bets, "Fletch": Bets}
 df = pd.DataFrame(data)
 
 st.title('NBA Million Dollar Picks')
