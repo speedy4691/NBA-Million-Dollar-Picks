@@ -23,7 +23,7 @@ with st.echo():
 
     options = Options()
     options.add_argument("--disable-gpu")
-    options.add_argument("--headless")
+    #options.add_argument("--headless")
 
     driver = get_driver()
     driver.get("http://example.com")
@@ -70,14 +70,13 @@ with st.echo():
     # print(Over_Under)
     Bets=[]
     for i in range(len(Over_Under)):
-         Bets.append("no")
+         Bets.append("$0")
 
 
     data={'Teams': teams, 'Date': game_date, 'Money Line': Money_Line, 'Line': Line, 'Over/Under': Over_Under, "Chase": Bets, "Cole": Bets, "Fletch": Bets}
     df = pd.DataFrame(data)
 
     st.title('NBA Million Dollar Picks')
-    st.dataframe(df)
     st.write("### Excel-style Editable Table")
     gb = GridOptionsBuilder.from_dataframe(df)
     gb.configure_default_column(editable=True)
