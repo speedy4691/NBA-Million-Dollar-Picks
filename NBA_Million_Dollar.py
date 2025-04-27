@@ -12,19 +12,22 @@ from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode
 j=0
 i=0
 
-@st.cache_data
+@st.cache_resource
 def get_driver():
     return webdriver.Chrome(
         service=Service(
             ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()
         ),
+        
     )
 
-    options = Options()
-    options.add_argument("--disable-gpu")
-    options.add_argument("--headless")
+options = Options()
+options.add_argument("--disable-gpu")
+options.add_argument("--headless")
 
-    driver = get_driver()
+driver = get_driver()
+@st.cache_resource
+def get_data():
     driver.get('https://www.sportsline.com/nba/odds/')
     teams = driver.find_elements(By.XPATH, '//div[@data-testid="Team-name"]')
     odds = driver.find_elements(By.XPATH, '//span[@class="primary"]')
@@ -71,7 +74,7 @@ def get_driver():
 
     data={'Teams': teams, 'Date': game_date, 'Money Line': Money_Line, 'Line': Line, 'Over/Under': Over_Under, "Chase": Bets, "Cole": Bets, "Fletch": Bets}
     return pd.DataFrame(data)
-df=get_driver()
+df=get_data()
 #df = pd.DataFrame(data)
 
 st.title('NBA Million Dollar Picks')
