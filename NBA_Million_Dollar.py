@@ -30,18 +30,17 @@ with st.echo():
 
     driver.get('https://www.sportsline.com/nba/odds/')
     teams = driver.find_elements(By.XPATH, '//div[@data-testid="Team-name"]')
-    teams = [element.text for element in teams]
     odds = driver.find_elements(By.XPATH, '//span[@class="primary"]')
-    odds = [element.text for element in odds]
     payout = driver.find_elements(By.XPATH, '//span[@class="secondary"]')
-    payout = [element.text for element in payout]
     date = driver.find_elements(By.XPATH,"//div[@class='date']")
+    driver.quit()
+    teams = [element.text for element in teams]
+    odds = [element.text for element in odds]
+    payout = [element.text for element in payout]
     date = [element.text for element in date]
     # print(teams)
     # print(odds)
     # print(payout)
-    #
-    driver.quit()
     Money_Line=[]
     Line=[]
     Over_Under=[]
