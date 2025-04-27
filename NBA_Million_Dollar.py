@@ -77,7 +77,7 @@ with st.echo():
     df = pd.DataFrame(data)
 
     st.title('NBA Million Dollar Picks')
-    st.write("### Excel-style Editable Table")
+    st.write("### Enter Your Picks Here")
     gb = GridOptionsBuilder.from_dataframe(df)
     gb.configure_default_column(editable=True)
     grid_options = gb.build()
@@ -90,7 +90,7 @@ with st.echo():
     )
     updated_df = pd.DataFrame(grid_response['data'])
 
-    st.write("### Updated Table")
+    st.write("### Daily Bets")
     st.dataframe(updated_df)
     
     st.code(driver.page_source)
