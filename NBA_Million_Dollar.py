@@ -5,13 +5,13 @@ from selenium.webdriver.common.by import By
 import pandas as pd
 import streamlit as st
 
+options = webdriver.ChromeOptions()
+options.add_argument('--headless')
+
 i=0
 j=0
 #References the latest version of chromedriver to use 
-driver_path = ChromeDriverManager().install()
-service = Service(driver_path)
-driver = webdriver.Chrome(service=service)
-
+driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 driver.get('https://www.sportsline.com/nba/odds/')
 teams = driver.find_elements(By.XPATH, '//div[@data-testid="Team-name"]')
 teams = [element.text for element in teams]
