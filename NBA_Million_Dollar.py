@@ -21,21 +21,21 @@ def get_driver():
         options=options,
     )
 
-options = Options()
-options.add_argument("--disable-gpu")
-options.add_argument("--headless")
+    options = Options()
+    options.add_argument("--disable-gpu")
+    options.add_argument("--headless")
 
-driver = get_driver()
-driver.get('https://www.sportsline.com/nba/odds/')
-teams = driver.find_elements(By.XPATH, '//div[@data-testid="Team-name"]')
-odds = driver.find_elements(By.XPATH, '//span[@class="primary"]')
-payout = driver.find_elements(By.XPATH, '//span[@class="secondary"]')
-date = driver.find_elements(By.XPATH,"//div[@class='date']")
-teams = [element.text for element in teams]
-odds = [element.text for element in odds]
-payout = [element.text for element in payout]
-date = [element.text for element in date]
-driver.quit()
+    driver = get_driver()
+    driver.get('https://www.sportsline.com/nba/odds/')
+    teams = driver.find_elements(By.XPATH, '//div[@data-testid="Team-name"]')
+    odds = driver.find_elements(By.XPATH, '//span[@class="primary"]')
+    payout = driver.find_elements(By.XPATH, '//span[@class="secondary"]')
+    date = driver.find_elements(By.XPATH,"//div[@class='date']")
+    teams = [element.text for element in teams]
+    odds = [element.text for element in odds]
+    payout = [element.text for element in payout]
+    date = [element.text for element in date]
+    driver.quit()
 # print(teams)
 # print(odds)
 # print(payout)
