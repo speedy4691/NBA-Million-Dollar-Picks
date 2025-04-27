@@ -90,4 +90,4 @@ with st.echo():
     st.write("### Daily Bets")
     st.dataframe(updated_df)
     
-    st.code(driver.page_source)
+    #st.code(driver.page_source)
