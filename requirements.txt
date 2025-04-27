@@ -2,4 +2,4 @@ streamlit
 selenium
 pandas
 webdriver-manager
-st_aggrid
+streamlit-aggrid
