@@ -1,6 +1,5 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 import pandas as pd
@@ -11,7 +10,7 @@ j=0
 #References the latest version of chromedriver to use 
 driver_path = ChromeDriverManager().install()
 service = Service(driver_path)
-driver = webdriver.Chrome(service=service, options=options)
+driver = webdriver.Chrome(service=service)
 
 driver.get('https://www.sportsline.com/nba/odds/')
 teams = driver.find_elements(By.XPATH, '//div[@data-testid="Team-name"]')
