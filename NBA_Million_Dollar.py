@@ -7,6 +7,7 @@ with st.echo():
     from webdriver_manager.core.os_manager import ChromeType
     from selenium.webdriver.common.by import By
     import pandas as pd
+    from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode
 
     j=0
     i=0
@@ -77,4 +78,20 @@ with st.echo():
 
     st.title('NBA Million Dollar Picks')
     st.dataframe(df)
+    st.write("### Excel-style Editable Table")
+    gb = GridOptionsBuilder.from_dataframe(df)
+    gb.configure_default_column(editable=True)
+    grid_options = gb.build()
+
+    grid_response = AgGrid(
+        df,
+        gridOptions=grid_options,
+        update_mode=GridUpdateMode.MODEL_CHANGED,
+        editable=True
+    )
+    updated_df = pd.DataFrame(grid_response['data'])
+
+    st.write("### Updated Table")
+    st.dataframe(updated_df)
+    
     st.code(driver.page_source)
