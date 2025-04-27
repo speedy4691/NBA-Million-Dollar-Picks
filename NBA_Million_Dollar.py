@@ -33,11 +33,11 @@ with st.echo():
     odds = driver.find_elements(By.XPATH, '//span[@class="primary"]')
     payout = driver.find_elements(By.XPATH, '//span[@class="secondary"]')
     date = driver.find_elements(By.XPATH,"//div[@class='date']")
-    driver.quit()
     teams = [element.text for element in teams]
     odds = [element.text for element in odds]
     payout = [element.text for element in payout]
     date = [element.text for element in date]
+    driver.quit()
     # print(teams)
     # print(odds)
     # print(payout)
