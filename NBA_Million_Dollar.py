@@ -1,7 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-import os
 from selenium.webdriver.common.by import By
 import pandas as pd
 import streamlit as st
@@ -11,9 +10,10 @@ j=0
 
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
-chromedriver_path = os.path.join(os.getcwd(), 'chromedriver')
-service = Service(chromedriver_path)
+service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=options)
+
+
 
 driver.get('https://www.sportsline.com/nba/odds/')
 teams = driver.find_elements(By.XPATH, '//div[@data-testid="Team-name"]')
