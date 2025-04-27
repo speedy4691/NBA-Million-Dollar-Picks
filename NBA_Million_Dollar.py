@@ -12,7 +12,7 @@ from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode
 j=0
 i=0
 
-@st.cache_resource
+@st.cache_data
 def get_driver():
     return webdriver.Chrome(
         service=Service(
