@@ -90,7 +90,7 @@ for i in range(len(df)):
     cols = st.columns(len(df.columns)) 
     for j, col_name in enumerate(df.columns):
         cell_value = df.at[i, col_name]
-        button_label = f"{cell_value} ({i},{j})" 
+        button_label = f"{cell_value}" 
         if cols[j].button(button_label, key=f"{i}-{j}"):
             st.success(f"You clicked: {cell_value} at row {i+1}, column {col_name}")
 
