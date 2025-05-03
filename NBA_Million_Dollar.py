@@ -84,6 +84,7 @@ df=get_data()
 
 st.title('NBA Million Dollar Picks')
 st.write("### Enter Your Picks Here")
+st.write(df)
 
 
 #gb = GridOptionsBuilder.from_dataframe(df)
