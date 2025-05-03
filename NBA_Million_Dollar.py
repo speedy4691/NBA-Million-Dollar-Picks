@@ -84,19 +84,21 @@ df=get_data()
 
 st.title('NBA Million Dollar Picks')
 st.write("### Enter Your Picks Here")
-gb = GridOptionsBuilder.from_dataframe(df)
-gb.configure_default_column(editable=True)
-grid_options = gb.build()
 
-grid_response = AgGrid(
-    df,
-    gridOptions=grid_options,
-    update_mode=GridUpdateMode.MODEL_CHANGED,
-    editable=True
-)
-updated_df = pd.DataFrame(grid_response['data'])
 
-st.write("### Daily Bets")
-st.dataframe(updated_df)
+#gb = GridOptionsBuilder.from_dataframe(df)
+#gb.configure_default_column(editable=True)
+#grid_options = gb.build()
+
+#grid_response = AgGrid(
+    #df,
+    #gridOptions=grid_options,
+    #update_mode=GridUpdateMode.MODEL_CHANGED,
+    #editable=True
+#)
+#updated_df = pd.DataFrame(grid_response['data'])
+
+#st.write("### Daily Bets")
+#st.dataframe(updated_df)
     
 #st.code(driver.page_source)
