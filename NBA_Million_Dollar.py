@@ -84,7 +84,7 @@ df=get_data()
 
 st.title('NBA Million Dollar Picks')
 st.write("### Enter Your Picks Here")
-st.write(df)
+#st.write(df)
 
 for i in range(len(df)):
     cols = st.columns(len(df.columns)) 
