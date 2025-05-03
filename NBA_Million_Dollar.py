@@ -77,6 +77,11 @@ def get_data():
 df=get_data()
 #df = pd.DataFrame(data)
 
+if st.button("🔄 Refresh Connection"):
+    st.cache_resource.clear()
+
+df=get_data()
+
 st.title('NBA Million Dollar Picks')
 st.write("### Enter Your Picks Here")
 gb = GridOptionsBuilder.from_dataframe(df)
